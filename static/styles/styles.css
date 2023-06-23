@@ -28,11 +28,11 @@ form {
     padding: 20px;
     border-radius: 15px;
 }
-form img {
-    object-fit: cover;
+form canvas {
+    object-fit: contain;
     width: 100%;
     max-width: 450px;
-    max-height: 450px;
+    height: 450px;
     margin-bottom: 20px;
 }
 label {
