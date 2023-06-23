@@ -1,6 +1,6 @@
+import List from "../components/list.jsx";
 import Form from "../islands/Form.jsx";
 export default function Home() {
-
   return (
     <html>
       <head>
@@ -9,6 +9,7 @@ export default function Home() {
       </head>
       <main>
         <Form />
+        <List />
       </main>
     </html>
   )

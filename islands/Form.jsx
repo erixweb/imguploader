@@ -19,23 +19,30 @@ export default function Form() {
             img.onload = () => {
                 ctx.drawImage(img, 0, 0, canvas.width, canvas.height)
             }
-
             const formData = new FormData()
-            formData.append("image", firstFile, firstFile.name)
+            formData.append("image", fr.result)
+            formData.append("imgName", firstFile.name)
 
             fetch(`api/upload`, {
                 method: "POST",
-                bodyUsed: true,
-                body: formData
+                body: formData,
+                cache: "no-cache"
+            })
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("info").innerText = data
             })
         }
     }
 
     return (
         <form>
+            <h1>
+                Subir imagen
+            </h1>
             <canvas id="canvas" />
             <span id="info"></span>
-            <label htmlFor="input-image">Upload</label>
+            <label htmlFor="input-image">Subir</label>
             <input type="file" id="input-image" onChange={uploadImage} />
         </form>
     )
